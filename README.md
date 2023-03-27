@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+과제내용과 DTO 첨부해드립니다.
+API 호출 시ReactQuery와 Axios 이용해주셔야 합니다.
 
-## Getting Started
+구현 내용
+## 1. 로그인하기
+    API : https://stage-backend.heyseller.kr/api/v1/auth/login POST
+    - Req DTO : LoginDTO  ( name : t , password : t )
+  - 로그인 성공 시 access_token 토큰이 반환됩니다.
+  - 토큰을 원하는 곳에 저장하신 뒤 메인페이지(Route : /)로 이동시켜주세요.
+  - 2번 문제부터 API 호출 시 header Authorization에 `Bearer ${토큰}` 를 넣어주셔야 합니다.
 
-First, run the development server:
+## 2. 목록 불러오기
+    API : https://stage-backend.heyseller.kr/api/v1/product/list GET
+    - Req DTO: SearchProductListDTO
+    - Res DTO :  PaginationResDTO<SimpleProductDTO>
+  - 상품 아이템의 렌더링은 아래와 같이 해주시면 됩니다.
+   ---------------------------------------------------------
+   |   이미지   상품명                                편집버튼|            
+   ---------------------------------------------------------|
+ - 페이지네이션은 구현안하셔도 됩니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 3. 목록에서 바로 상품명 수정할 수 있게 구현하기
+ - 상품명 수정 시 1초 딜레이 후 상품 업데이트 API 요청
+      API : https://stage-backend.heyseller.kr/api/v1/product/:productId PUT
+       - Req DTO : UpdateProductDTO
+ - *상품명 수정 시 다른 상품 리렌더링되지 않게 하기
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 4. 상품 편집
+  - 상품 편집 버튼을 누르면 상품명을 수정할 수 있는 팝업을 보여줍니다.
+  - *모든 팝업은 ESC버튼을 누르면 최상단 팝업만 닫혀야 합니다.
+  - 팝업에는 이미지(selectedThumbnailUrl), 상품명 Input, 수정버튼이 있어야합니다.
+  - 수정버튼을 누르면 업데이트 API를 요청합니다.
+  
+        API : https://stage-backend.heyseller.kr/api/v1/product/:productId PUT
+        Req DTO : UpdateProductDTO
+  - API가 정상적으로 반환되면 팝업을 닫고 해당 상품을 리렌더링 시켜줍니다.
+  - 수정한 상품명이 반영돼야합니다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 5. 상품 이미지 클릭시 이미지 팝업 열리기
+   - 상품 이미지 클릭시 이미지 팝업이 열립니다.
+   - 이미지 팝업은 이미지만 보여주면 됩니다.
+   - 오른족 상단에 팝업을 닫을 수 있는 x 버튼이 있어야합니다.
+   - *모든 팝업은 ESC버튼을 누르면 최상단 팝업만 닫혀야 합니다.
+  
