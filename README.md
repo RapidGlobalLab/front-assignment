@@ -4,7 +4,7 @@ API 호출 시ReactQuery와 Axios 이용해주셔야 합니다.
 구현 내용
 ## 1. 로그인하기
     API : https://stage-backend.heyseller.kr/api/v1/auth/login POST
-    - Req DTO : LoginDTO  ( name : t , password : t )
+    - Req DTO : LoginDTO  ( name : rapid , password : rapid123! )
   - 로그인 성공 시 access_token 토큰이 반환됩니다.
   - 토큰을 원하는 곳에 저장하신 뒤 메인페이지(Route : /)로 이동시켜주세요.
   - 2번 문제부터 API 호출 시 header Authorization에 `Bearer ${토큰}` 를 넣어주셔야 합니다.
