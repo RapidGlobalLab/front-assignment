@@ -3,176 +3,94 @@ import { SHIPPING_TYPE } from "../enums/shipping_type";
 
 export interface ProductModel {
   id: number;
-
   userId: number;
-
-  employeeId: number;
-
+  employeeId: number | null;
   rawTitle: string;
-
   title: string;
-
   categoryId: number;
-
   contentHtml: string;
-
   thumbnailUrls: string[];
-
   tags: string[];
-
-  cutTitleCount: number;
-
   shippingType: SHIPPING_TYPE;
-
   shippingPrice: number;
-
   refundPrice: number;
-
   exchangePrice: number;
-
-  lastEditedDate: Date;
-
-  lastExcelExportedDate?: Date;
-
-  optionConfirmed: boolean;
-
-  tagConfirmed: boolean;
-
-  contentConfirmed: boolean;
-
-  excelExported: boolean;
-
-  selectedThumbnailUrl: string;
-
-  originalUrl: string;
-
-  isDeleted: boolean;
-
-  rawPrice?: string;
-
-  minPrice: number;
-
-  maxPrice: number;
-
-  currency: CURRENCY;
-
-  json: any;
-
-  includesOptionHtml: boolean;
-
-  coupangId?: string;
-
-  st11Id?: string;
-
-  coupangCategoryId?: number;
-
-  coupangCategoryName?: string;
-
-  st11CategoryId?: number;
-
-  auctionId?: string;
-
-  gmarketId?: string;
-
-  auctionV2Id?: string;
-
-  gmarketV2Id?: string;
-
-  auctionEsmId?: string;
-
-  gmarketEsmId?: string;
-
-  auctionCategoryId?: string;
-
-  gmarketCategoryId?: string;
-
-  addedPrice?: number;
-
-  smartStoreId?: string;
-
-  smartStoreUrl?: string;
-
-  interparkCategoryId?: string;
-
-  interparkId?: string;
-
-  lotteonCategoryId?: string;
-
-  lotteonId?: string;
-
-  talkstoreCategoryId?: string;
-
-  talkstoreId?: string;
-
-  talkstoreUrl?: string;
-
-  exported: boolean;
-
-  wemakepriceId?: string;
-
-  wemakepriceCategoryId?: string;
-
-  lotteonCategoryId2?: string;
-
-  videoUrl?: string;
-
-  coupangFailLog?: string;
-
-  st11FailLog?: string;
-
-  st11AbroadFailLog?: string;
-
-  auctionFailLog?: string;
-
-  gmarketFailLog?: string;
-
-  auctionV2FailLog?: string;
-
-  gmarketV2FailLog?: string;
-
-  smartstoreFailLog?: string;
-
-  interparkFailLog?: string;
-
-  talkstoreFailLog?: string;
-
-  lotteonFailLog?: string;
-
-  wemakepriceFailLog?: string;
-
-  includesVideoToHtml?: boolean;
-
-  videoMuted?: boolean;
-
-  ohooImageIdMap: any;
-
-  st11AbroadId?: string;
-
-  st11AbroadCategoryId?: number;
-
-  auction2CategoryId?: string;
-
-  gmarket2CategoryId?: string;
-
-  categoryName?: string;
-
-  createdAt: Date;
-
-  deletedAt?: Date;
-
-  isOptionImageVerticalLayout: boolean;
-
-  isOptionImageTopPlace: boolean;
-
-  isUploaded: boolean;
-
+  lastExcelExportedDate: Date | null;
   titleConfirmed: boolean;
-
-  uploadedAt?: Date;
-
-  isOverridePrice: boolean | undefined;
-
-  marginRate?: number;
-
-  memo?: string;
+  optionConfirmed: boolean;
+  tagConfirmed: boolean;
+  contentConfirmed: boolean;
+  excelExported: boolean;
+  selectedThumbnailUrl: string;
+  originalUrl: string;
+  isDeleted: boolean;
+  rawPrice: string | null;
+  price: number;
+  minPrice: number;
+  maxPrice: number;
+  currency: CURRENCY | null;
+  json: any | null;
+  includesOptionHtml: boolean;
+  coupangId: string | null;
+  st11Id: string | null;
+  coupangCategoryId: number | null;
+  st11CategoryId: number | null;
+  auctionId: string | null;
+  gmarketId: string | null;
+  auctionV2Id: string | null;
+  gmarketV2Id: string | null;
+  auctionEsmId: string | null;
+  gmarketEsmId: string | null;
+  auctionEsmV2Id: string | null;
+  gmarketEsmV2Id: string | null;
+  auctionCategoryId: string | null;
+  gmarketCategoryId: string | null;
+  addedPrice: number | null;
+  smartStoreId: string | null;
+  smartStoreUrl: string | null;
+  interparkCategoryId: string | null;
+  interparkId: string | null;
+  lotteonCategoryId: string | null;
+  lotteonId: string | null;
+  talkstoreCategoryId: string | null;
+  talkstoreId: string | null;
+  talkstoreUrl: string | null;
+  exported: boolean | null;
+  wemakepriceId: string | null;
+  wemakepriceCategoryId: string | null;
+  lotteonCategoryId2: string | null;
+  videoUrl: string | null;
+  coupangFailLog: string | null;
+  st11FailLog: string | null;
+  st11AbroadFailLog: string | null;
+  auctionFailLog: string | null;
+  gmarketFailLog: string | null;
+  auctionV2FailLog: string | null;
+  gmarketV2FailLog: string | null;
+  smartstoreFailLog: string | null;
+  interparkFailLog: string | null;
+  talkstoreFailLog: string | null;
+  lotteonFailLog: string | null;
+  wemakepriceFailLog: string | null;
+  includesVideoToHtml: boolean | null;
+  videoMuted: boolean | null;
+  ohooImageIdMap: any | null;
+  st11AbroadId: string | null;
+  st11AbroadCategoryId: number | null;
+  auction2CategoryId: string | null;
+  gmarket2CategoryId: string | null;
+  categoryName: string | null;
+  isOptionImageVerticalLayout: boolean;
+  isOptionImageTopPlace: boolean;
+  isUploaded: boolean;
+  isOverridePrice: boolean | null;
+  marginRate: number | null;
+  coupangCategoryName: string | null;
+  createdAt: Date;
+  deletedAt: Date | null;
+  uploadedAt: Date | null;
+  lastEditedDate: Date;
+  updatedAt: Date | null;
+  memo: string | null;
+  cutTitleCount: number | null;
 }
